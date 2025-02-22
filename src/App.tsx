@@ -14,10 +14,6 @@ const App: React.FC = () => {
   const [overlayDimensions, setOverlayDimensions] = useState({ width: 0, height: 0 });
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [stegoImage, setStegoImage] = useState<string | null>(null);
-  const [restoredImage, setRestoredImage] = useState<string | null>(null);
-  const [finalOutputFile, setFinalOutputFile] = useState<File | null>(null);
-
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const baseInputRef = useRef<HTMLInputElement>(null);
