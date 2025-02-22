@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [restoredImage, setRestoredImage] = useState<string | null>(null);
   const [finalOutputFile, setFinalOutputFile] = useState<File | null>(null);
 
-  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const baseInputRef = useRef<HTMLInputElement>(null);
   const overlayInputRef = useRef<HTMLInputElement>(null);
@@ -76,9 +76,10 @@ const App: React.FC = () => {
   const handleReset = () => {
     setBaseImage(null);
     setOverlayImage(null);
-    setStegoImage(null);
-    setRestoredImage(null);
-    setFinalOutputFile(null);
+
+
+
+
     setOverlayPosition({ x: 0, y: 0 });
     setCanvasSize({ width: 0, height: 0 });
     setOverlayDimensions({ width: 0, height: 0 });
@@ -146,7 +147,6 @@ const App: React.FC = () => {
       const result = await SteganographyService.encodeImage(baseImageFile, overlayImageFile);
 
       const stegoBlob = await SteganographyService.downloadFile(result.stego_image);
-      setStegoImage(URL.createObjectURL(stegoBlob));
       downlaodBlob(stegoBlob, "encoded_image_pngx.png");
       setError(null);
 
@@ -176,7 +176,6 @@ const App: React.FC = () => {
     try {
       const result = await SteganographyService.decodeImage(stegoImage);
       const restoredBlob = await SteganographyService.downloadFile(result.restored_image);
-      setRestoredImage(URL.createObjectURL(restoredBlob));
       downlaodBlob(restoredBlob, "decoded_image_pngx.png");
       setError(null);
     } catch (err) {
