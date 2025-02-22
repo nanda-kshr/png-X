@@ -18,6 +18,7 @@ const App: React.FC = () => {
   const [restoredImage, setRestoredImage] = useState<string | null>(null);
   const [finalOutputFile, setFinalOutputFile] = useState<File | null>(null);
 
+  
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const baseInputRef = useRef<HTMLInputElement>(null);
   const overlayInputRef = useRef<HTMLInputElement>(null);
